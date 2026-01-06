@@ -16,10 +16,7 @@ class Solution {
             k++;
         }
         Arrays.sort(res);
-        if(res.length==2)
-        {
-            return (double)(res[0]+res[1])/2;
-        }
+       
         if(res.length%2==0)
         {
             int mid=res.length/2;
