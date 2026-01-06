@@ -3,6 +3,8 @@ class Solution {
         int count=0;
         int a=nums[0];
         int b=0;
+        Arrays.sort(nums);
+
         for(int i=0;i<nums.length;i++)
         {
            
