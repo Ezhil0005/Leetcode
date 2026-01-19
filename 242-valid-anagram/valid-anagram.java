@@ -4,10 +4,6 @@ class Solution {
         char brr[]=t.toCharArray();
         Arrays.sort(arr);
         Arrays.sort(brr);
-        String a=Arrays.toString(arr);
-        String b=Arrays.toString(brr); 
-        if(a.equals(b))
-        return true;
-        return false;      
+      return Arrays.equals(arr,brr);    
     }
 }
