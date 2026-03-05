@@ -30,16 +30,16 @@ class Solution {
             pre=curr;
             curr=next;
         }
-        ListNode temp=pre;
+        ListNode second=pre;
         ListNode first=head;
-        while(temp!=null&&first!=null)
+        while(second!=null&&first!=null)
         {
-            ListNode sec=first.next;
-            ListNode fir=temp.next;
-            first.next=temp;
-            temp.next=sec;
-            temp=fir;
-            first=sec;
+            ListNode fir=first.next;
+            ListNode sec=second.next;
+            first.next=second;
+            second.next=fir;
+            second=sec;
+            first=fir;
         }
         
     }
