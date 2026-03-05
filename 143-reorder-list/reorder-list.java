@@ -10,59 +10,37 @@
  */
 class Solution {
     public void reorderList(ListNode head) {
+        
         ListNode slow=head;
-        ListNode fast=head;
+        ListNode fast=head.next;
         while(fast!=null&&fast.next!=null)
         {
             slow=slow.next;
             fast=fast.next.next;
         }
-     ListNode dummy=slow.next;
-     slow.next=null;
-     ListNode curr=dummy;
-     ListNode pre=null;
-     ListNode next=null;
-     while(curr!=null)
-     {
-        next=curr.next;
-        curr.next=pre;
-        pre=curr;
-        curr=next;
-     }
-    ListNode first=head;
-    ListNode second=pre;
-    while(second!=null)
-    {
-        ListNode ft=first.next;
-        ListNode st=second.next;
-        first.next=second;
-        second.next=ft;
-        first=ft;
-        second=st;
-    }
-    
+        ListNode dummy=slow.next;
+        slow.next=null;
+        ListNode curr=dummy;
+        ListNode next=null;
+        ListNode pre=null;
+        while(curr!=null)
+        {
+            next=curr.next;
+            curr.next=pre;
+            pre=curr;
+            curr=next;
+        }
+        ListNode temp=pre;
+        ListNode first=head;
+        while(temp!=null&&first!=null)
+        {
+            ListNode sec=first.next;
+            ListNode fir=temp.next;
+            first.next=temp;
+            temp.next=sec;
+            temp=fir;
+            first=sec;
+        }
         
-
-     }
+    }
 }
-
-    //  ListNode dummy2=pre;
-    //  ListNode res=null;
-    //  int i=1;
-    //  ListNode dummy3=head;
-    //  while(dummy2!=null||dummy3!=null)
-    //  {
-    //     if(i%2!=0)
-    //     {
-    //     res.next=dummy3;
-    //     dummy3=dummy3.next;
-    //     i++;
-    //     }
-    //     else
-    //     {
-    //         res.next=dummy2;
-    //         dummy2=dummy2.next;
-    //         i++;
-    //     }
-    //  }
-
