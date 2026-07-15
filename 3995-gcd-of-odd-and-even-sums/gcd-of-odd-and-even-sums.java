@@ -3,20 +3,23 @@ class Solution {
         int m=0;
         int odd=0;
         int even=0;
-        for(int i=1;i<=n*2;i++)
-        {
-            if(i%2==0)
-            {
-                even+=i;
-            }
-            else
-            odd+=i;
-        }
-        int gcd=0;
-        if(n==1)
-        {
-            return 1;
-        }
+        // for(int i=1;i<=n*2;i++)
+        // {
+        //     if(i%2==0)
+        //     {
+        //         even+=i;
+        //     }
+        //     else
+        //     odd+=i;
+        // }
+        // int gcd=0;
+        // if(n==1)
+        // {
+        //     return 1;
+        // }
+        even=n*(n+1);
+        odd=n*n;
+        int gcd=1;
         for(int i=2;i<odd;i++)
         {
             
