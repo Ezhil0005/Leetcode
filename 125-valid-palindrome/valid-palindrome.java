@@ -1,22 +1,16 @@
 class Solution {
-    public boolean isPalindrome(String s) {
-        String res="";
+    public Boolean isPalindrome(String s) {
+        StringBuilder sb=new StringBuilder();
         s=s.toLowerCase();
-        for(char a:s.toCharArray())
+        for(int i=0;i<s.length();i++)
         {
-
-            if((a>='a'&&a<='z')||(a>='0'&&a<='9'))
-            res+=a;
+            if(Character.isLetterOrDigit(s.charAt(i)))
+            sb.append(s.charAt(i));
         }
-        String fin="";
-        for(int i=res.length()-1;i>=0;i--)
-        {
-            
-            fin+=res.charAt(i);
-        }
-        if(res.equals(fin))
+        String b=sb.toString();
+        String m=sb.reverse().toString();
+        if(m.equals(b))
         return true;
         return false;
     }
-
 }
