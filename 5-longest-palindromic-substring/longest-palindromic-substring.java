@@ -4,6 +4,7 @@ class Solution {
         int even=0;
         int end=0;
         int start=0;
+        
         for(int i=0;i<s.length();i++)
         {
             odd=sub(s,i,i);
