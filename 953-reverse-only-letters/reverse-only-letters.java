@@ -1,34 +1,38 @@
 class Solution {
     public String reverseOnlyLetters(String s) {
-        StringBuilder sb=new StringBuilder();
-        String temp=s;
-        int n=s.length();
-        int k=0;
-        for(int i=n-1;i>=0;i--)
+        StringBuilder sb=new StringBuilder(s);
+        int left=0;
+        int right=s.length()-1;
+
+        while(left<right)
         {
-            if((s.charAt(i)>='a' && s.charAt(i)<='z')||s.charAt(i)>='A'&&s.charAt(i)<='Z')
+            if(Character.isLetter(sb.charAt(left)) && Character.isLetter(sb.charAt(right)))
             {
-                if((temp.charAt(k)>='a'&& temp.charAt(k)<='z')||(temp.charAt(k)>='A'&&temp.charAt(k)<='Z'))
-                {
-                    sb.append(s.charAt(i));
-                }
-                else
-                {
-                    sb.append(temp.charAt(k));
-                    i++;
-                }
-                k++;
+                char c=sb.charAt(left);
+                sb.setCharAt(left,sb.charAt(right));
+                sb.setCharAt(right,c);
+                left++;
+                right--;
             }
-           
-
+            else if(!Character.isLetter(sb.charAt(left)) && Character.isLetter(sb.charAt(right)))
+            {
+                left++;
+            }
+            else if(Character.isLetter(sb.charAt(left)) && !Character.isLetter(sb.charAt(right)))
+            {
+            right--;
+            }
+            else
+            {
+                // char d=sb.charAt(left);
+                // sb.setCharAt(left,sb.charAt(right));
+                // sb.setCharAt(right,d);
+                left++;
+                right--;
+                // right--;
+                // left++;
+            }
         }
-        while(k<n)
-        {
-        sb.append(temp.charAt(k));
-        k++;
-        }
-
         return sb.toString();
-
     }
 }
