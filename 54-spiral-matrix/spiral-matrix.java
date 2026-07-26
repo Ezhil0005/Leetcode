@@ -6,36 +6,35 @@ class Solution {
         int bottom=n-1;
         int left=0;
         int right=matrix[0].length-1;
-       while(top<=bottom && left <= right)
-       {
+        while(top<=bottom && left<=right)
+        {
             for(int i=left;i<=right;i++)
             {
                 list.add(matrix[top][i]);
-                
             }
             top++;
-            for(int j=top;j<=bottom;j++)
+            for(int i=top;i<=bottom;i++)
             {
-                list.add(matrix[j][right]);
+                list.add(matrix[i][right]);
             }
             right--;
             if(top<=bottom)
             {
-                for(int i=right;i>=left;i--)
-                {
-                    list.add(matrix[bottom][i]);
-                }
-                bottom--;
+            for(int i=right;i>=left;i--)
+            {
+                list.add(matrix[bottom][i]);
+            }
+            bottom--;
             }
             if(left<=right)
             {
-                for(int j=bottom;j>=top;j--)
-                {
-                    list.add(matrix[j][left]);
-                }
-                left++;
+            for(int i=bottom;i>=top;i--)
+            {
+                list.add(matrix[i][left]);
             }
-       }
+            
+            left++;}
+        }
         return list;
-    }
+}
 }
